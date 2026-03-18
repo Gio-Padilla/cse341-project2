@@ -1,0 +1,47 @@
+[
+  {
+    "studentId": "S1002",
+    "firstName": "Emily",
+    "lastName": "Smith",
+    "email": "emily.smith@email.com",
+    "age": 22,
+    "major": "Biology",
+    "enrolledCourses": ["C103", "C104"]
+  },
+  {
+    "studentId": "S1003",
+    "firstName": "Michael",
+    "lastName": "Johnson",
+    "email": "michael.johnson@email.com",
+    "age": 19,
+    "major": "Mathematics",
+    "enrolledCourses": ["C101", "C105"]
+  },
+  {
+    "studentId": "S1004",
+    "firstName": "Sophia",
+    "lastName": "Williams",
+    "email": "sophia.williams@email.com",
+    "age": 21,
+    "major": "Psychology",
+    "enrolledCourses": ["C102", "C104"]
+  },
+  {
+    "studentId": "S1005",
+    "firstName": "Daniel",
+    "lastName": "Brown",
+    "email": "daniel.brown@email.com",
+    "age": 23,
+    "major": "Engineering",
+    "enrolledCourses": ["C101", "C103"]
+  },
+  {
+    "studentId": "S1001",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@email.com",
+    "age": 20,
+    "major": "Computer Science",
+    "enrolledCourses": ["C101", "C102"]
+  }
+]

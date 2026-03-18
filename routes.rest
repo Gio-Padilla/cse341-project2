@@ -1,0 +1,95 @@
+### ===========================
+### STUDENTS ROUTES
+### ===========================
+
+# GET all students
+GET http://localhost:3000/students
+Accept: application/json
+
+###
+
+# GET single student by studentId
+GET http://localhost:3000/students/S1001
+Accept: application/json
+
+###
+
+# CREATE a new student
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+  "studentId": "S1002",
+  "firstName": "Alice",
+  "lastName": "Johnson",
+  "email": "alice.johnson@email.com",
+  "age": 21,
+  "major": "Mathematics",
+  "enrolledCourses": ["C101", "C102"]
+}
+
+###
+
+# UPDATE student by studentId
+PUT http://localhost:3000/students/S1002
+Content-Type: application/json
+
+{
+  "studentId": "S1002",
+  "firstName": "Alice",
+  "lastName": "Johnson",
+  "email": "alice.johnson@email.com",
+  "age": 22,
+  "major": "Physics",
+  "enrolledCourses": ["C103"]
+}
+
+###
+
+# DELETE student by studentId
+DELETE http://localhost:3000/students/S1002
+
+### ===========================
+### COURSES ROUTES
+### ===========================
+
+# GET all courses
+GET http://localhost:3000/courses
+Accept: application/json
+
+###
+
+# GET single course by courseId
+GET http://localhost:3000/courses/C101
+Accept: application/json
+
+###
+
+# CREATE a new course
+POST http://localhost:3000/courses
+Content-Type: application/json
+
+{
+  "courseId": "C103",
+  "courseName": "Physics 101",
+  "instructor": "Dr. Albert Einstein",
+  "credits": 4
+}
+
+###
+
+# UPDATE course by courseId
+PUT http://localhost:3000/courses/C103
+Content-Type: application/json
+
+{
+  "courseId": "C103",
+  "courseName": "Advanced Physics",
+  "instructor": "Dr. Albert Einstein",
+  "credits": 5
+}
+
+###
+
+# DELETE course by courseId
+DELETE http://localhost:3000/courses/C103

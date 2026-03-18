@@ -1,0 +1,32 @@
+[
+  {
+    "courseId": "C101",
+    "courseName": "Database Fundamentals",
+    "instructor": "Dr. Smith",
+    "credits": 3
+  },
+  {
+    "courseId": "C102",
+    "courseName": "Introduction to Programming",
+    "instructor": "Prof. Johnson",
+    "credits": 4
+  },
+  {
+    "courseId": "C103",
+    "courseName": "Biology I",
+    "instructor": "Dr. Lee",
+    "credits": 3
+  },
+  {
+    "courseId": "C104",
+    "courseName": "General Psychology",
+    "instructor": "Dr. Martinez",
+    "credits": 3
+  },
+  {
+    "courseId": "C105",
+    "courseName": "Calculus I",
+    "instructor": "Prof. Davis",
+    "credits": 4
+  }
+]
