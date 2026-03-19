@@ -24,6 +24,18 @@ app.use((req, res, next) => {
 // Routes
 app.use('/', require('./routes'));
 
+// Global Error Handler (Goes after all routes)
+app.use((err, req, res, next) => {
+    console.error(err);
+
+    let statusCode = err.status || 500;
+    let message = err.message || 'Internal Server Error';
+
+    res.status(statusCode).json({
+        error: message
+    });
+});
+
 // Start server // pnpm start
 mongodb.initDb((err) => {
     if(err) {

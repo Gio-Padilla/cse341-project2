@@ -1,40 +1,56 @@
 // This is the Routes file
 const router = require('express').Router();
-// const { get } = require('.');
+
 const studentsController = require('../controllers/students');
 const { studentRules, checkValidation, studentIdParam } = require('../utilities/validator');
+const utilities = require("../utilities/");
 
-// GET
-router.get('/', studentsController.getAll);
+// GET ALL
+router.get(
+    '/',
+    //#swagger.tags = ['student']
+    //#swagger.summary = 'Get all students'
+    utilities.handleErrors(studentsController.getAll)
+);
+
+// GET SINGLE
 router.get(
     '/:studentId',
+    //#swagger.tags = ['student']
+    //#swagger.summary = 'Get a single student by studentId'
     studentIdParam(),
     checkValidation,
-    studentsController.getSingle
+    utilities.handleErrors(studentsController.getSingle)
 );
 
 // POST
 router.post(
     '/',
+    //#swagger.tags = ['student']
+    //#swagger.summary = 'Create a new student'
     studentRules(),
     checkValidation,
-    studentsController.addStudent
+    utilities.handleErrors(studentsController.addStudent)
 );
 
 // PUT
 router.put(
     '/:studentId',
+    //#swagger.tags = ['student']
+    //#swagger.summary = 'Update a student'
     studentRules(),
     checkValidation,
-    studentsController.editStudent
+    utilities.handleErrors(studentsController.editStudent)
 );
 
 // DELETE
 router.delete(
     '/:studentId',
+    //#swagger.tags = ['student']
+    //#swagger.summary = 'Delete a student'
     studentIdParam(),
     checkValidation,
-    studentsController.deleteStudent
+    utilities.handleErrors(studentsController.deleteStudent)
 );
 
 module.exports = router;

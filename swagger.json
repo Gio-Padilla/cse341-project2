@@ -1,39 +1,26 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts Api",
-    "description": "An Api for contacts",
+    "title": "Students Api",
+    "description": "An API for students and courses",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cse341-project2-f9xc.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/student/": {
       "get": {
         "tags": [
           "student"
         ],
+        "summary": "Get all students",
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "default": {
+            "description": ""
           }
         }
       },
@@ -41,48 +28,11 @@
         "tags": [
           "student"
         ],
+        "summary": "Create a new student",
         "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "studentId": {
-                  "example": "any"
-                },
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "age": {
-                  "example": "any"
-                },
-                "major": {
-                  "example": "any"
-                },
-                "enrolledCourses": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
           "400": {
             "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -92,6 +42,7 @@
         "tags": [
           "student"
         ],
+        "summary": "Get a single student by studentId",
         "description": "",
         "parameters": [
           {
@@ -102,17 +53,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -120,6 +62,7 @@
         "tags": [
           "student"
         ],
+        "summary": "Update a student",
         "description": "",
         "parameters": [
           {
@@ -127,50 +70,11 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "studentId": {
-                  "example": "any"
-                },
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "age": {
-                  "example": "any"
-                },
-                "major": {
-                  "example": "any"
-                },
-                "enrolledCourses": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -178,6 +82,7 @@
         "tags": [
           "student"
         ],
+        "summary": "Delete a student",
         "description": "",
         "parameters": [
           {
@@ -188,17 +93,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -208,13 +104,11 @@
         "tags": [
           "course"
         ],
+        "summary": "Get all courses",
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "default": {
+            "description": ""
           }
         }
       },
@@ -222,39 +116,11 @@
         "tags": [
           "course"
         ],
+        "summary": "Create a new course",
         "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "courseId": {
-                  "example": "any"
-                },
-                "courseName": {
-                  "example": "any"
-                },
-                "instructor": {
-                  "example": "any"
-                },
-                "credits": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
           "400": {
             "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -264,6 +130,7 @@
         "tags": [
           "course"
         ],
+        "summary": "Get a single course by courseId",
         "description": "",
         "parameters": [
           {
@@ -274,17 +141,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -292,6 +150,7 @@
         "tags": [
           "course"
         ],
+        "summary": "Update a course",
         "description": "",
         "parameters": [
           {
@@ -299,41 +158,11 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "courseId": {
-                  "example": "any"
-                },
-                "courseName": {
-                  "example": "any"
-                },
-                "instructor": {
-                  "example": "any"
-                },
-                "credits": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -341,6 +170,7 @@
         "tags": [
           "course"
         ],
+        "summary": "Delete a course",
         "description": "",
         "parameters": [
           {
@@ -351,27 +181,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/api-docs/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
           }
         }
       }

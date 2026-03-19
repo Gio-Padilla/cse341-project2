@@ -3,38 +3,54 @@ const router = express.Router();
 
 const coursesController = require('../controllers/courses');
 const { courseRules, checkValidation, courseIdParam } = require('../utilities/validator');
+const utilities = require("../utilities/");
 
-// GET
-router.get('/', coursesController.getAll);
+// GET ALL COURSES
+router.get(
+    '/',
+    //#swagger.tags = ['course']
+    //#swagger.summary = 'Get all courses'
+    utilities.handleErrors(coursesController.getAll)
+);
+
+// GET SINGLE COURSE
 router.get(
     '/:courseId',
+    //#swagger.tags = ['course']
+    //#swagger.summary = 'Get a single course by courseId'
     courseIdParam(),
     checkValidation,
-    coursesController.getSingle
+    utilities.handleErrors(coursesController.getSingle)
 );
 
-// POST
+// POST COURSE
 router.post(
     '/',
+    //#swagger.tags = ['course']
+    //#swagger.summary = 'Create a new course'
     courseRules(),
     checkValidation,
-    coursesController.addCourse
+    utilities.handleErrors(coursesController.addCourse)
 );
 
-// PUT
+// PUT COURSE
 router.put(
     '/:courseId',
+    //#swagger.tags = ['course']
+    //#swagger.summary = 'Update a course'
     courseRules(),
     checkValidation,
-    coursesController.editCourse
+    utilities.handleErrors(coursesController.editCourse)
 );
 
-// DELETE
+// DELETE COURSE
 router.delete(
     '/:courseId',
+    //#swagger.tags = ['course']
+    //#swagger.summary = 'Delete a course'
     courseIdParam(),
     checkValidation,
-    coursesController.deleteCourse
+    utilities.handleErrors(coursesController.deleteCourse)
 );
 
 module.exports = router;

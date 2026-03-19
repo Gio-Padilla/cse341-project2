@@ -9,6 +9,8 @@ const studentRules = () => {
             .withMessage('studentId is required')
             .isString()
             .withMessage('studentId must be a string')
+            .matches(/^[A-Za-z0-9]+$/) // No spaces or special characters
+            .withMessage('studentId must not contain spaces or special characters')
             .custom(async (value, { req }) => {
                 const db = mongodb.getDatabase().db();
 
@@ -34,22 +36,27 @@ const studentRules = () => {
             }),
 
         body('firstName')
+            .trim()
             .notEmpty()
             .withMessage('First name is required'),
 
         body('lastName')
+            .trim()
             .notEmpty()
             .withMessage('Last name is required'),
 
         body('email')
+            .trim()
             .isEmail()
             .withMessage('Valid email is required'),
 
         body('age')
+            .trim()
             .isInt({ min: 0 })
             .withMessage('Age must be a positive number'),
 
         body('major')
+            .trim()
             .notEmpty()
             .withMessage('Major is required'),
 
@@ -67,6 +74,8 @@ const courseRules = () => {
             .withMessage('courseId is required')
             .isString()
             .withMessage('courseId must be a string')
+            .matches(/^[A-Za-z0-9]+$/) // No spaces or special characters
+            .withMessage('courseId must not contain spaces or special characters')
             .custom(async (value, { req }) => {
                 const db = mongodb.getDatabase().db();
 

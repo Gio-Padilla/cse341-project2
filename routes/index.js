@@ -6,8 +6,19 @@ const coursesRoutes = require('./courses');
 
 router.get('/', (req, res) => { res.send('Hello World')});
 
-router.use('/student', studentRoutes);
-router.use('/course', coursesRoutes);
-router.use('/api-docs', swaggerRoutes);
+router.use(
+    '/student',
+    studentRoutes
+);
+
+router.use(
+    '/course',
+    coursesRoutes
+);
+
+router.use(
+    '/api-docs',
+    swaggerRoutes
+);
 
 module.exports = router;
