@@ -26,8 +26,20 @@ router.get(
 // POST COURSE
 router.post(
     '/',
-    //#swagger.tags = ['course']
-    //#swagger.summary = 'Create a new course'
+    /* #swagger.tags = ['course']
+       #swagger.summary = 'Create a new course'
+       #swagger.parameters['body'] = {
+           in: 'body',
+           description: 'Course object to add',
+           required: true,
+           schema: {
+               "courseId": "C101",
+               "courseName": "Database Fundamentals",
+               "instructor": "Dr. Smith",
+               "credits": 3
+           }
+       }
+    */
     courseRules(),
     checkValidation,
     utilities.handleErrors(coursesController.addCourse)
@@ -36,8 +48,20 @@ router.post(
 // PUT COURSE
 router.put(
     '/:courseId',
-    //#swagger.tags = ['course']
-    //#swagger.summary = 'Update a course'
+    /* #swagger.tags = ['course']
+       #swagger.summary = 'Update a course'
+       #swagger.parameters['body'] = {
+           in: 'body',
+           description: 'Updated course object',
+           required: true,
+           schema: {
+               "courseId": "C102",
+               "courseName": "Introduction to Programming",
+               "instructor": "Prof. Johnson",
+               "credits": 4
+           }
+       }
+    */
     courseRules(),
     checkValidation,
     utilities.handleErrors(coursesController.editCourse)
