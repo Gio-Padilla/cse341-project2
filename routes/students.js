@@ -3,6 +3,7 @@ const router = require('express').Router();
 const studentsController = require('../controllers/students');
 const { studentRules, checkValidation, studentIdParam } = require('../utilities/validator');
 const utilities = require("../utilities/");
+const auth = require('../utilities/authenticate');
 
 // GET ALL STUDENTS
 router.get(
@@ -42,6 +43,7 @@ router.post(
            }
        }
     */
+    auth.isAuthenticated,
     studentRules(),
     checkValidation,
     utilities.handleErrors(studentsController.addStudent)
@@ -67,6 +69,7 @@ router.put(
            }
        }
     */
+    auth.isAuthenticated,
     studentRules(),
     checkValidation,
     utilities.handleErrors(studentsController.editStudent)
@@ -77,6 +80,7 @@ router.delete(
     '/:studentId',
     //#swagger.tags = ['student']
     //#swagger.summary = 'Delete a student'
+    auth.isAuthenticated,
     studentIdParam(),
     checkValidation,
     utilities.handleErrors(studentsController.deleteStudent)

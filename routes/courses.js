@@ -4,6 +4,7 @@ const router = express.Router();
 const coursesController = require('../controllers/courses');
 const { courseRules, checkValidation, courseIdParam } = require('../utilities/validator');
 const utilities = require("../utilities/");
+const auth = require('../utilities/authenticate');
 
 // GET ALL COURSES
 router.get(
@@ -40,6 +41,7 @@ router.post(
            }
        }
     */
+    auth.isAuthenticated,
     courseRules(),
     checkValidation,
     utilities.handleErrors(coursesController.addCourse)
@@ -62,6 +64,7 @@ router.put(
            }
        }
     */
+    auth.isAuthenticated,
     courseRules(),
     checkValidation,
     utilities.handleErrors(coursesController.editCourse)
@@ -72,6 +75,7 @@ router.delete(
     '/:courseId',
     //#swagger.tags = ['course']
     //#swagger.summary = 'Delete a course'
+    auth.isAuthenticated,
     courseIdParam(),
     checkValidation,
     utilities.handleErrors(coursesController.deleteCourse)
